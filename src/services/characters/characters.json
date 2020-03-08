@@ -1,60 +1,72 @@
-{
-  "nothing": {
+[
+  {
+    "key": "nothing",
     "name": "Rien",
     "role": "divinity"
   },
-  "consequences": {
+  {
+    "key": "consequences",
     "name": "Conséquences",
     "role": "divinity"
   },
-  "everything": {
+  {
+    "key": "everything",
     "name": "Tout",
     "role": "descendant",
     "parent": ["nothing"]
   },
-  "annihilation": {
+  {
+    "key": "annihilation",
     "name": "Annihilation",
     "role": "descendant",
     "parent": ["nothing"]
   },
-  "universe": {
+  {
+    "key": "universe",
     "name": "Universe",
     "role": "concept",
     "parent": ["everything", "consequences"]
   },
-  "qualia": {
+  {
+    "key": "qualia",
     "name": "Qualia",
     "role": "descendant",
     "parent": ["everything"]
   },
-  "self": {
+  {
+    "key": "self",
     "name": "Soi",
     "role": "great-herald",
     "parent": ["qualia"]
   },
-  "reason": {
+  {
+    "key": "reason",
     "name": "Raison",
     "role": "great-herald",
     "parent": ["self"]
   },
-  "fear": {
+  {
+    "key": "fear",
     "name": "Peur",
     "role": "great-herald",
     "parent": ["self"]
   },
-  "trust": {
+  {
+    "key": "trust",
     "name": "Confiance",
     "role": "herald",
     "parent": ["self"]
   },
-  "intuition": {
+  {
+    "key": "intuition",
     "name": "Intuition",
     "role": "herald",
     "spontaneous": true
   },
-  "freedom": {
+  {
+    "key": "freedom",
     "name": "Liberté",
     "role": "herald",
     "spontaneous": true
   }
-}
+]

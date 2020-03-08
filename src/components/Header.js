@@ -1,8 +1,10 @@
 import React from "react";
 import { Link, matchPath, useLocation } from "react-router-dom";
+import useCharacters from "../services/characters/useCharacters.js";
 
 export default function Header() {
   let location = useLocation();
+  const { getCharacterUrl, charactersByRole } = useCharacters();
 
   const menu = [
     {
@@ -12,57 +14,29 @@ export default function Header() {
     {
       title: "Divinités",
       url: "/divinities",
-      children: [
-        {
-          title: "Rien",
-          url: "/divinities/nothing"
-        },
-        {
-          title: "Conséquences",
-          url: "/divinities/consequences"
-        },
-        {
-          title: "Tout",
-          url: "/divinities/everything"
-        },
-        {
-          title: "Annihilation",
-          url: "/divinities/annihilation"
-        },
-        {
-          title: "Qualia",
-          url: "/divinities/qualia"
-        }
-      ]
+      children: charactersByRole("divinity", "descendant").map(char => ({
+        title: char.name,
+        url: getCharacterUrl(char.key)
+      }))
     },
     {
       title: "Hérauts",
       url: "/heralds",
-      children: [
-        {
-          title: "Soi",
-          url: "/heralds/self"
-        },
-        {
-          title: "Raison",
-          url: "/heralds/reason"
-        },
-        {
-          title: "Peur",
-          url: "/heralds/fear"
-        }
-      ]
+      children: charactersByRole("great-herald", "herald").map(char => ({
+        title: char.name,
+        url: getCharacterUrl(char.key)
+      }))
     }
   ];
 
-  function getActiveClassName(url) {
+  function getActiveProps(url) {
     return matchPath(location.pathname, {
       path: url,
       exact: true,
       strict: false
     })
-      ? "active"
-      : "";
+      ? { className: "active" }
+      : {};
   }
 
   return (
@@ -89,17 +63,15 @@ export default function Header() {
                 {menu.map(firstLevelItem => (
                   <li
                     key={firstLevelItem.url}
-                    className={
-                      !firstLevelItem.children &&
-                      getActiveClassName(firstLevelItem.url)
-                    }
+                    {...(!firstLevelItem.children &&
+                      getActiveProps(firstLevelItem.url))}
                   >
                     <Link to={firstLevelItem.url}>{firstLevelItem.title}</Link>
                     <ul className="dropdown">
                       {(firstLevelItem.children || []).map(secondLevelItem => (
                         <li
                           key={secondLevelItem.url}
-                          className={getActiveClassName(firstLevelItem.url)}
+                          {...getActiveProps(secondLevelItem.url)}
                         >
                           <Link to={secondLevelItem.url}>
                             {secondLevelItem.title}

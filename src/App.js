@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Nothing from "./pages/Nothing";
 import Home from "./pages/Home";
+import CharacterSwitch from "./pages/CharacterSwitch";
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/nothing">
-          <Nothing />
+        <Route path={"/:role/:character"}>
+          <CharacterSwitch />
         </Route>
         <Route path="/">
           <Home />

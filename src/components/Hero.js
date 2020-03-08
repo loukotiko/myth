@@ -32,9 +32,11 @@ export default function Hero({ carousel }) {
                   <div className="hero-text">
                     <h2>{slide.line1}</h2>
                     <h1>{slide.line2}</h1>
-                    <NavLink to={slide.url} className="primary-btn">
-                      {slide.button}
-                    </NavLink>
+                    {slide.url && (
+                      <NavLink to={slide.url} className="primary-btn">
+                        {slide.button}
+                      </NavLink>
+                    )}
                   </div>
                 </div>
               </div>
