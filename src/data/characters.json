@@ -1,0 +1,60 @@
+{
+  "nothing": {
+    "name": "Rien",
+    "role": "divinity"
+  },
+  "consequences": {
+    "name": "Conséquences",
+    "role": "divinity"
+  },
+  "everything": {
+    "name": "Tout",
+    "role": "descendant",
+    "parent": ["nothing"]
+  },
+  "annihilation": {
+    "name": "Annihilation",
+    "role": "descendant",
+    "parent": ["nothing"]
+  },
+  "universe": {
+    "name": "Universe",
+    "role": "concept",
+    "parent": ["everything", "consequences"]
+  },
+  "qualia": {
+    "name": "Qualia",
+    "role": "descendant",
+    "parent": ["everything"]
+  },
+  "self": {
+    "name": "Soi",
+    "role": "great-herald",
+    "parent": ["qualia"]
+  },
+  "reason": {
+    "name": "Raison",
+    "role": "great-herald",
+    "parent": ["self"]
+  },
+  "fear": {
+    "name": "Peur",
+    "role": "great-herald",
+    "parent": ["self"]
+  },
+  "trust": {
+    "name": "Confiance",
+    "role": "herald",
+    "parent": ["self"]
+  },
+  "intuition": {
+    "name": "Intuition",
+    "role": "herald",
+    "spontaneous": true
+  },
+  "freedom": {
+    "name": "Liberté",
+    "role": "herald",
+    "spontaneous": true
+  }
+}
